@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CounterService {
+
     private final AtomicInteger counter = new AtomicInteger(0);
 
     public int increment() {
