@@ -1,26 +1,26 @@
 package com.example.demo.counter;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class CounterService {
-    private int counter = 0;
-    
+    private final AtomicInteger counter = new AtomicInteger(0);
+
     public int increment() {
-        counter++;
-        return counter;
+        return counter.incrementAndGet();
     }
 
     public int decrement() {
-        counter--;
-        return counter;
+        return counter.decrementAndGet();
     }
 
     public int getCounter() {
-        return counter;
+        return counter.get();
     }
 
     public void resetCounter() {
-        counter = 0;
+        counter.set(0);
     }
 }
